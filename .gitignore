@@ -1,0 +1,24 @@
+# Binaries
+bin/
+corvus
+*.exe
+
+# Local data / stores
+*.db
+*.db-lock
+*.log
+*.jsonl
+/var/lib/corvus/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Build / vendor
+vendor/
+dist/
+
+# OS / editor
+.DS_Store
+*.swp

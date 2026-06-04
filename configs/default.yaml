@@ -1,0 +1,70 @@
+scanner:
+  timeout: 3s
+  concurrency: 1000
+  default_ports: "1-1024,8080,8443,9200,5432,3306,6379,27017"
+  rate: 0  # 0 = unlimited (bounded by concurrency)
+
+store:
+  path: "/var/lib/corvus/corvus.db"
+  retention: "90d"
+
+log:
+  level: "info"   # debug, info, warn, error
+  format: "text"  # text, json
+
+api:
+  port: 8080
+  bind: "127.0.0.1"
+  auth_token: ""  # leave empty to disable auth (local use only)
+  read_timeout: 10s
+  write_timeout: 30s
+
+mesh:
+  port: 7946
+  advertise_addr: ""
+  secret: ""  # hex-encoded 16-byte AES key for mesh encryption
+
+osint:
+  ct_logs: true
+  bgp_lookup: true
+  dns_resolve: true
+  timeout: 10s
+
+watch:
+  default_interval: "5m"
+  alert_sinks:
+    - type: stdout
+
+cve:
+  nvd_api_key: ""
+  osv: true
+  github_advisory: true
+  cache_ttl: "24h"
+  enabled: true
+
+supplychain:
+  enabled: true
+  hygiene_checks: true  # detect dev tools, debug endpoints, reverse shell ports
+
+cloud:
+  enabled: false  # enable to correlate open ports against cloud security group rules
+  aws:
+    region: ""          # leave empty to use AWS_REGION env or instance metadata
+  gcp:
+    project_id: ""      # leave empty to use GOOGLE_CLOUD_PROJECT env or ADC
+  azure:
+    subscription_id: "" # leave empty to use AZURE_SUBSCRIPTION_ID env
+
+llm:
+  enabled: false
+  provider: "anthropic"          # anthropic | openai | local
+  model: "claude-sonnet-4-6"
+  api_key: ""                    # or set CORVUS_LLM_API_KEY env var
+  local_endpoint: ""             # for provider: local, e.g. http://localhost:11434/v1
+
+otel:
+  enabled: false
+  endpoint: ""          # OTLP gRPC endpoint, e.g. localhost:4317
+  insecure: true        # set false if OTLP endpoint uses TLS
+  prometheus_port: 9090 # expose /metrics for Prometheus scraping; 0 to disable
+  service_name: "corvus"
