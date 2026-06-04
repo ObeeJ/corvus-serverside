@@ -12,7 +12,7 @@ This repository is the **backend** — the engine, CLI, API server, and data lay
   <img alt="Go" src="https://img.shields.io/badge/Go-1.25-00ADD8?logo=go&logoColor=white">
   <img alt="API" src="https://img.shields.io/badge/API-Fiber%20%2B%20WebSocket-000000">
   <img alt="Store" src="https://img.shields.io/badge/Store-bbolt%20%2B%20Postgres-336791">
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-blue">
+  <img alt="License" src="https://img.shields.io/badge/License-Proprietary-red">
   <img alt="Status" src="https://img.shields.io/badge/Status-Active%20development-f59e0b">
 </p>
 
@@ -171,10 +171,14 @@ corvus-serverside/
 
 ## Status & Disclaimer
 
-Corvus is a **personal engineering project under active development** — a demonstration of systems design in Go, not a certified security product. It compiles cleanly (`go build ./...`), passes `go vet`, and ships unit tests for the mesh layer; coverage elsewhere is still growing, and some integrations (email, response webhooks, deep cloud-API correlation) are intentionally stubbed pending future work.
+Corvus is a **personal engineering project under active development** — a demonstration of systems design in Go, not a certified security product. It compiles cleanly (`go build ./...`), passes `go vet`, and ships unit tests across the core packages (iprange, query parser, fingerprinting, OSINT attribution, supply-chain checks, anomaly diffing, auth, API keys, the temporal store, and the encrypted mesh), run on every push via GitHub Actions CI. Coverage elsewhere is still growing, and some integrations (email delivery, response webhooks, deep cloud-API correlation) are intentionally stubbed pending future work.
 
 **Authorized use only.** Active scanning may be illegal or against policy on networks you do not own or lack written permission to assess. You are solely responsible for how you use this tool. The author accepts no liability for misuse or for any damage arising from its use. Provided **as-is**, without warranty of any kind.
 
-## License
+## License & Usage
 
-[MIT](LICENSE) © ObeeJ
+**© 2026 ObeeJ. All rights reserved.** This project is **proprietary and source-available** — see [LICENSE](LICENSE).
+
+This code is published publicly for **portfolio and evaluation purposes only**. You are welcome to read it and assess the engineering. You may **not** copy, reuse, modify, redistribute, deploy, or build upon it — in whole or in part — without prior written permission from the author.
+
+If you'd like to use, license, or collaborate on Corvus, please reach out. Please don't replicate or repackage it as your own.
